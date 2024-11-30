@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: detectpothole_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - banking-network
+    ports:
+      - "3306:3306"
+
+  springboot:
+    image: banking-service:v1
+    container_name: server-detectpothole-container
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8090:8090"
+    networks:
+      - detectpothole-network
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
+
+networks:
+  detectpothole-network:
