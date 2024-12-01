@@ -33,7 +33,6 @@ CREATE TABLE unverified_user (
     is_confirmed BOOLEAN DEFAULT FALSE
 );
 
-
 -- Thêm người dùng mới
 INSERT INTO app_user (username, email, password, setting_id) VALUES
 ('vuthinh', 'vuthinh@example.com', 'password123', NULL),
@@ -67,5 +66,3 @@ INSERT INTO unverified_user (email, v_code, purpose_type, is_confirmed) VALUES
 ('temp_nguyenhuutai@example.com', '654321', 'ChangePass', TRUE),
 ('temp_lekhautai@example.com', '000001', 'VerifyUser', FALSE),
 ('temp_theanhtai@example.com', '000002', 'ChangePass', TRUE);
-
-
