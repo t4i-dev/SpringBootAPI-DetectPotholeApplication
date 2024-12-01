@@ -1,3 +1,9 @@
+CREATE TABLE user_setting (
+    id BIGSERIAL PRIMARY KEY,
+    language VARCHAR(50),
+    notification VARCHAR(255),
+    shared_data VARCHAR(255)
+);
 CREATE TABLE app_user (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -6,12 +12,6 @@ CREATE TABLE app_user (
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     setting_id BIGINT,
     FOREIGN KEY (setting_id) REFERENCES user_setting(id)
-);
-CREATE TABLE user_setting (
-    id BIGSERIAL PRIMARY KEY,
-    language VARCHAR(50),
-    notification VARCHAR(255),
-    shared_data VARCHAR(255)
 );
 CREATE TABLE pothole (
     id SERIAL PRIMARY KEY,
